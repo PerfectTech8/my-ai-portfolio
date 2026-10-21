@@ -1,0 +1,26 @@
+PORTFOLIO VIDEO GALLERY SETUP — UPDATED WITH GRWM
+
+This patch updates Selected Work to show eleven MP4 projects and play them directly on the website in an on-page video player. It adds the category “AI Lifestyle & GRWM” and two GRWM cards.
+
+1. In your existing project folder, replace these files with the ones from this patch:
+   - src/components/site/Sections.tsx
+   - src/components/site/data.ts
+2. Copy the patch's src/assets/video-thumbnails folder into your project's src/assets folder (merge the folders; keep existing thumbnail files).
+3. Create public/videos if it does not exist. Copy your original videos from your computer into that folder and rename them exactly:
+
+peak ugc.mp4                 -> peak-ugc.mp4
+nivea ugc.mp4                -> nivea-ugc.mp4
+Colgate advert(1).mp4        -> colgate-ad.mp4
+indomie-2.mp4                -> indomie-ad.mp4
+valentino-corrected.mp4      -> valentino-ad.mp4
+coca cola.mp4                -> coca-cola-ad.mp4
+dove ad.mp4                  -> dove-ad.mp4
+vaseline.mp4                 -> vaseline-ad.mp4
+paternity secret scene-1.mp4 -> paternity-secret-scene-1.mp4
+grwm 1.mp4                   -> grwm-1.mp4
+gwrm-2.mp4                   -> grwm-2.mp4
+
+4. Save the files. Vite should reload automatically. If it does not, stop the terminal with Ctrl+C and run npm run dev again.
+5. Scroll to Selected Work. Use the category filters, including “AI Lifestyle & GRWM”. Click a card to play its video on the website.
+
+The MP4s are not included in this small patch; use your original video files already on your computer. Do not add private API keys or .env files.

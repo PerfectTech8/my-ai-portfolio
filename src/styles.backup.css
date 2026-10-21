@@ -1,0 +1,257 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+  --color-popover: hsl(var(--popover));
+  --color-popover-foreground: hsl(var(--popover-foreground));
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+  --color-destructive: hsl(var(--destructive));
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+  --color-gold: hsl(var(--gold));
+  --color-violet: hsl(var(--violet));
+}
+
+:root {
+  --background: 240 10% 4%;
+  --foreground: 40 20% 92%;
+  --card: 240 8% 7%;
+  --card-foreground: 40 20% 92%;
+  --popover: 240 8% 7%;
+  --popover-foreground: 40 20% 92%;
+  --primary: 43 65% 52%;
+  --primary-foreground: 240 10% 4%;
+  --secondary: 260 35% 20%;
+  --secondary-foreground: 40 20% 92%;
+  --muted: 240 5% 15%;
+  --muted-foreground: 240 5% 60%;
+  --accent: 43 65% 52%;
+  --accent-foreground: 240 10% 4%;
+  --destructive: 0 62% 30%;
+  --border: 240 5% 18%;
+  --input: 240 5% 18%;
+  --ring: 43 65% 52%;
+  --gold: 43 65% 52%;
+  --violet: 270 55% 55%;
+
+  /* Unified section spacing */
+  --section-space-y: clamp(3.5rem, 6vw, 5rem);
+  --section-space-x: clamp(1.25rem, 4vw, 3rem);
+  --content-max-width: 1280px;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Inter", sans-serif;
+    overflow-x: hidden;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "Playfair Display", serif;
+  }
+
+  img,
+  video {
+    max-width: 100%;
+  }
+
+  video {
+    display: block;
+  }
+}
+
+@utility label-caps {
+  font-family: "Inter", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-size: 0.7rem;
+  font-weight: 500;
+}
+
+@utility container-lux {
+  width: 100%;
+  max-width: var(--content-max-width);
+  margin-inline: auto;
+  padding-inline: var(--section-space-x);
+}
+
+@utility btn-gold {
+  background: hsl(var(--gold));
+  color: hsl(var(--background));
+  padding: 0.875rem 2rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  transition: all 0.3s ease;
+}
+
+@utility btn-outline-gold {
+  border: 1px solid hsl(var(--gold));
+  color: hsl(var(--gold));
+  padding: 0.875rem 2rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  transition: all 0.3s ease;
+}
+
+@utility btn-violet {
+  background: hsl(var(--violet));
+  color: white;
+  padding: 0.875rem 2rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  transition: all 0.3s ease;
+}
+
+@utility btn-outline-violet {
+  border: 1px solid hsl(var(--violet));
+  color: hsl(var(--violet));
+  padding: 0.875rem 2rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  transition: all 0.3s ease;
+}
+
+/* =========================================
+   GLOBAL PORTFOLIO SPACING SYSTEM
+   ========================================= */
+
+/* Keep all main sections aligned and consistently spaced. */
+section[id]:not(#top) {
+  scroll-margin-top: 5rem;
+}
+
+/* Keep the hero compact without forcing it to fill the screen. */
+section#top {
+  min-height: auto;
+  padding-top: clamp(6rem, 9vw, 8rem);
+  padding-bottom: clamp(2rem, 4vw, 3rem);
+}
+
+/* Consistent content width and horizontal alignment. */
+section[id] .container-lux {
+  width: 100%;
+  max-width: var(--content-max-width);
+  margin-inline: auto;
+}
+
+/* Prevent grids from creating unnecessarily large gaps. */
+section[id] .grid {
+  row-gap: clamp(1.25rem, 2.5vw, 2rem);
+}
+
+/* Keep video cards and project grids responsive. */
+video {
+  height: auto;
+  object-fit: cover;
+}
+
+/* Tablet and mobile spacing. */
+@media (max-width: 768px) {
+  :root {
+    --section-space-y: 3.25rem;
+    --section-space-x: 1.25rem;
+  }
+
+  section#top {
+    padding-top: 6rem;
+    padding-bottom: 2rem;
+  }
+
+  section[id]:not(#top) {
+    scroll-margin-top: 4rem;
+  }
+
+  section[id] .grid {
+    row-gap: 1.25rem;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --section-space-y: 2.75rem;
+    --section-space-x: 1rem;
+  }
+}
+
+/* Mobile responsiveness fixes */
+html,
+body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: clip;
+}
+
+#root {
+  width: 100%;
+  min-width: 0;
+  overflow-x: clip;
+}
+
+img,
+video,
+iframe {
+  max-width: 100%;
+}
+
+@media (max-width: 640px) {
+  .container-lux {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  h1,
+  h2,
+  h3,
+  p {
+    overflow-wrap: anywhere;
+  }
+
+  button,
+  a {
+    max-width: 100%;
+  }
+
+  video,
+  img {
+    height: auto;
+  }
+}
